@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sala de juego — BingoLive</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/sala.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__bar">
+      <a class="brand" href="../index.html">
+        <span class="brand__mark">B</span>
+        <span>BingoLive</span>
+      </a>
+      <span id="header-status" class="badge badge-soon">Cargando…</span>
+    </div>
+  </header>
+
+  <main>
+    <div id="loading-state" class="container" style="padding: 40px 24px;">
+      <div class="skeleton" style="height: 340px; width: 100%; border-radius: 22px;"></div>
+    </div>
+
+    <div id="empty-state" class="container empty-state" hidden>
+      <h2>No encontramos tu sala de juego</h2>
+      <p>Verificá el enlace que te compartió el organizador tras aprobar tu pago.</p>
+    </div>
+
+    <div id="sala-content" hidden>
+      <div class="container sala-header">
+        <div class="sala-header__top">
+          <h1 id="sala-bingo-name">—</h1>
+        </div>
+      </div>
+
+      <div class="container sala-layout">
+        <div>
+          <div id="waiting-banner" class="waiting-banner" hidden>
+            El organizador todavía no inició el bingo. Esta sala se activa automáticamente en cuanto comience el sorteo.
+          </div>
+          <div id="finished-banner" class="finished-banner" hidden>
+            Este bingo ya finalizó. ¡Gracias por participar!
+          </div>
+
+          <div class="video-wrap" id="video-wrap">
+            <div class="video-placeholder">El organizador todavía no cargó un video en vivo.</div>
+          </div>
+
+          <article class="paper-card current-ball-panel">
+            <div class="current-ball">
+              <span class="current-ball__value" id="current-ball-value">--</span>
+            </div>
+            <div style="flex:1;">
+              <p class="history-label">Historial de bolillas</p>
+              <div class="history-track" id="history-track"></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="cards-panel">
+          <div class="card-switcher" id="card-switcher"></div>
+          <article class="paper-card bingo-card-visual" id="card-visual">
+            <div class="bingo-grid-header">
+              <span>B</span><span>I</span><span>N</span><span>G</span><span>O</span>
+            </div>
+            <div class="bingo-grid" id="bingo-grid"></div>
+            <p class="owner-info" id="card-owner-info"></p>
+          </article>
+
+          <article class="paper-card" style="padding: 20px;">
+            <p style="font-weight:600; font-size:0.92rem; margin-bottom:10px; color:#3a361f;">¿Completaste una jugada?</p>
+            <div class="claim-buttons">
+              <button class="claim-btn" id="btn-claim-terna" data-type="terna">Terna</button>
+              <button class="claim-btn" id="btn-claim-linea" data-type="linea">Línea</button>
+              <button class="claim-btn" id="btn-claim-bingo" data-type="bingo">¡Bingo!</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© 2026 BingoLive</span>
+      <span>El marcado es automático; los reclamos los valida el organizador</span>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script type="module" src="../assets/js/pages/sala.page.js"></script>
+</body>
+</html>
