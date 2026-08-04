@@ -1,0 +1,414 @@
+/* =============================================================
+   PANEL DEL ORGANIZADOR — estilos compartidos
+============================================================= */
+
+.org-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.org-topbar__user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--ink-text-dim);
+}
+
+.org-topbar__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ink-soft);
+  border: 1px solid var(--ink-line);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--ink-text);
+}
+
+.org-page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 8px 0 28px;
+}
+
+.org-page-head h1 {
+  font-size: 1.8rem;
+}
+
+.org-page-head p {
+  color: var(--ink-text-dim);
+  margin-top: 6px;
+}
+
+/* ---------- Auth (login/registro) ---------- */
+.auth-wrap {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px;
+}
+
+.auth-card h1 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.auth-card__hint {
+  color: #6b664f;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--paper-dim);
+  padding: 4px;
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+
+.auth-tab {
+  flex: 1;
+  text-align: center;
+  padding: 9px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #6b664f;
+}
+
+.auth-tab.is-active {
+  background: var(--ink);
+  color: var(--ink-text);
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #3a361f;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #d8d2bd;
+  background: #fffdf7;
+  color: #201c12;
+  font-family: inherit;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--gold);
+}
+
+.field-error {
+  color: var(--coral);
+  font-size: 0.78rem;
+  min-height: 16px;
+  margin-top: 4px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* ---------- Stats grid ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  padding: 20px;
+}
+
+.stat-card__label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b664f;
+}
+
+.stat-card__value {
+  font-family: var(--font-mono);
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* ---------- Grid de bingos (dashboard) ---------- */
+.bingo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.bingo-card {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bingo-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.bingo-card h3 {
+  font-size: 1.1rem;
+}
+
+.bingo-card__meta {
+  font-size: 0.84rem;
+  color: #6b664f;
+}
+
+.bingo-card__stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #6b664f;
+  border-top: 1px solid var(--paper-dim);
+  padding-top: 12px;
+}
+
+.bingo-card__stats strong {
+  display: block;
+  font-family: var(--font-mono);
+  color: #201c12;
+  font-size: 1rem;
+}
+
+.empty-panel {
+  padding: 60px 24px;
+  text-align: center;
+  color: var(--ink-text-dim);
+}
+
+/* ---------- Tabs de detalle de bingo ---------- */
+.org-tabs {
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid var(--ink-line);
+  margin-bottom: 26px;
+  overflow-x: auto;
+}
+
+.org-tab {
+  padding: 12px 18px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--ink-text-dim);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.org-tab.is-active {
+  color: var(--gold-strong);
+  border-bottom-color: var(--gold);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.is-active {
+  display: block;
+}
+
+/* ---------- Tablas ---------- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  text-align: left;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b664f;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--paper-dim);
+}
+
+.data-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--paper-dim);
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.status-pill {
+  display: inline-flex;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.status-pill.pending {
+  background: rgba(107, 102, 79, 0.14);
+  color: #6b664f;
+}
+
+.status-pill.review {
+  background: rgba(231, 178, 76, 0.18);
+  color: #8a5f10;
+}
+
+.status-pill.approved {
+  background: rgba(42, 157, 143, 0.16);
+  color: #16665c;
+}
+
+.status-pill.rejected {
+  background: rgba(225, 91, 77, 0.16);
+  color: #a3382c;
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-small {
+  padding: 8px 14px;
+  font-size: 0.82rem;
+}
+
+.link-receipt {
+  color: #8a5f10;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* ---------- Control de sorteo ---------- */
+.draw-panel {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.draw-ball {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #fff8e8, var(--gold-strong) 42%, var(--gold) 68%, #a97a1f 100%);
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  box-shadow: 0 20px 40px -14px rgba(231, 178, 76, 0.5);
+}
+
+.draw-ball__value {
+  font-family: var(--font-mono);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #1c1204;
+}
+
+.draw-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+  max-height: 120px;
+  overflow-y: auto;
+}
+
+.draw-chip {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--paper-dim);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #201c12;
+}
+
+.draw-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.winner-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .field-row,
+  .winner-form {
+    grid-template-columns: 1fr;
+  }
+  .draw-panel {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
