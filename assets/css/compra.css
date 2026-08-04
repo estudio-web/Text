@@ -1,0 +1,201 @@
+/* =============================================================
+   COMPRA — selección de cartones + datos del jugador
+============================================================= */
+
+.flow-header {
+  padding: 40px 0 10px;
+}
+
+.flow-steps {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.flow-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--ink-text-dim);
+}
+
+.flow-step__dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  background: var(--ink-soft);
+  border: 1px solid var(--ink-line);
+}
+
+.flow-step.is-active {
+  color: var(--ink-text);
+  font-weight: 600;
+}
+
+.flow-step.is-active .flow-step__dot {
+  background: var(--gold);
+  color: #1c1204;
+  border-color: var(--gold);
+}
+
+.flow-step.is-done .flow-step__dot {
+  background: var(--teal);
+  color: #06231e;
+  border-color: var(--teal);
+}
+
+.flow-main {
+  padding: 10px 0 90px;
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 28px;
+  align-items: start;
+}
+
+.summary-card {
+  padding: 26px;
+}
+
+.summary-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.summary-card .bingo-name {
+  color: #4a4636;
+  margin-bottom: 18px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--paper-dim);
+  font-size: 0.94rem;
+}
+
+.summary-row:last-of-type {
+  border-bottom: none;
+}
+
+.summary-row span:first-child {
+  color: #6b664f;
+}
+
+.summary-row strong {
+  font-family: var(--font-mono);
+}
+
+.summary-total {
+  margin-top: 14px;
+  padding-top: 16px;
+  border-top: 1px solid var(--paper-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.summary-total strong {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+}
+
+.form-card {
+  padding: 30px;
+}
+
+.form-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.form-card__hint {
+  color: #6b664f;
+  font-size: 0.9rem;
+  margin-bottom: 24px;
+}
+
+.qty-stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-stepper button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #d8d2bd;
+  background: #fffdf7;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #201c12;
+}
+
+.qty-stepper button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.qty-stepper input {
+  width: 72px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #3a361f;
+}
+
+.field input {
+  width: 100%;
+  padding: 13px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #d8d2bd;
+  background: #fffdf7;
+  color: #201c12;
+}
+
+.field input:focus {
+  border-color: var(--gold);
+}
+
+.field-error {
+  color: var(--coral);
+  font-size: 0.78rem;
+  min-height: 16px;
+  margin-top: 4px;
+}
+
+.form-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .flow-grid {
+    grid-template-columns: 1fr;
+  }
+}

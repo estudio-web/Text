@@ -1,0 +1,333 @@
+/* =============================================================
+   DESIGN SYSTEM — tokens + reset + componentes base
+   Paleta: tinta nocturna + dorado de bolilla (evita los clichés
+   "crema + terracota" y "negro + verde ácido").
+   Tipografía: Fraunces (display, con carácter de cartel de
+   salón de bingo clásico) + Inter (cuerpo, muy legible) +
+   IBM Plex Mono (números: precios, DNI, CBU, bolillas).
+============================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap");
+
+:root {
+  /* Color */
+  --ink: #10142b;
+  --ink-soft: #171c3d;
+  --ink-line: #2a2f57;
+  --paper: #f7f4ec;
+  --paper-dim: #eae5d6;
+  --gold: #e7b24c;
+  --gold-strong: #f2c874;
+  --teal: #2a9d8f;
+  --coral: #e15b4d;
+  --ink-text: #eceaf9;
+  --ink-text-dim: #a9aed1;
+
+  /* Tipografía */
+  --font-display: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  /* Layout */
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --shadow-soft: 0 20px 60px -25px rgba(0, 0, 0, 0.55);
+  --container: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--ink);
+  color: var(--ink-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  margin: 0;
+  line-height: 1.1;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Header global ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(16, 20, 43, 0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ink-line);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+}
+
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, var(--gold-strong), var(--gold) 55%, #a97a1f 100%);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--ink);
+  font-size: 0.85rem;
+  box-shadow: inset 0 -3px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, var(--gold-strong), var(--gold));
+  color: #1c1204;
+  box-shadow: 0 12px 24px -10px rgba(231, 178, 76, 0.65);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 16px 30px -10px rgba(231, 178, 76, 0.8);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-text);
+  border: 1px solid var(--ink-line);
+}
+
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold-strong);
+}
+
+.btn-danger {
+  background: var(--coral);
+  color: #2a0906;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- Tarjetas tipo "cartón de papel" ---------- */
+.paper-card {
+  background: var(--paper);
+  color: #201c12;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Badges de estado ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-live {
+  background: rgba(42, 157, 143, 0.15);
+  color: var(--teal);
+  border: 1px solid rgba(42, 157, 143, 0.4);
+}
+
+.badge-live::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.6);
+  animation: pulse-dot 1.8s infinite;
+}
+
+.badge-soon {
+  background: rgba(231, 178, 76, 0.14);
+  color: var(--gold-strong);
+  border: 1px solid rgba(231, 178, 76, 0.4);
+}
+
+.badge-closed {
+  background: rgba(225, 91, 77, 0.14);
+  color: var(--coral);
+  border: 1px solid rgba(225, 91, 77, 0.4);
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(42, 157, 143, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(42, 157, 143, 0);
+  }
+}
+
+/* ---------- Skeleton / loading ---------- */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-soft);
+  border-radius: var(--radius-sm);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ---------- Toast / feedback ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 20px);
+  background: var(--ink-soft);
+  border: 1px solid var(--ink-line);
+  color: var(--ink-text);
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 100;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.toast.is-error {
+  border-color: rgba(225, 91, 77, 0.5);
+}
+
+/* ---------- Footer global ---------- */
+.site-footer {
+  border-top: 1px solid var(--ink-line);
+  padding: 28px 0 40px;
+  color: var(--ink-text-dim);
+  font-size: 0.85rem;
+}
+
+.site-footer .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .site-header__bar {
+    padding: 14px 18px;
+  }
+}

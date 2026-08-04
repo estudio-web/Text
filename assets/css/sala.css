@@ -1,0 +1,274 @@
+/* =============================================================
+   SALA DEL JUGADOR — video en vivo + cartón + marcado automático
+============================================================= */
+
+.sala-header {
+  padding: 22px 0 6px;
+}
+
+.sala-header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sala-header h1 {
+  font-size: 1.5rem;
+}
+
+.sala-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  padding: 20px 0 90px;
+  align-items: start;
+}
+
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  box-shadow: var(--shadow-soft);
+}
+
+.video-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--ink-text-dim);
+  font-size: 0.95rem;
+  background: var(--ink-soft);
+}
+
+.current-ball-panel {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 22px;
+}
+
+.current-ball {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #fff8e8, var(--gold-strong) 42%, var(--gold) 68%, #a97a1f 100%);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  box-shadow: 0 16px 30px -12px rgba(231, 178, 76, 0.5);
+}
+
+.current-ball__value {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1c1204;
+}
+
+.history-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-text-dim);
+  margin-bottom: 8px;
+}
+
+.history-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 90px;
+  overflow-y: auto;
+}
+
+.history-chip {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ink-soft);
+  border: 1px solid var(--ink-line);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.history-chip.is-recent {
+  background: var(--gold);
+  color: #1c1204;
+  border-color: var(--gold);
+}
+
+/* ---------- Panel de cartones ---------- */
+.cards-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-switcher {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.card-switcher button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--ink-line);
+  background: var(--ink-soft);
+  color: var(--ink-text-dim);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.card-switcher button.is-active {
+  background: var(--gold);
+  color: #1c1204;
+  border-color: var(--gold);
+}
+
+.bingo-card-visual {
+  padding: 20px;
+}
+
+.bingo-grid-header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.bingo-grid-header span {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--gold);
+  background: var(--ink);
+  border-radius: 8px;
+  padding: 6px 0;
+}
+
+.bingo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.bingo-cell {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #fffdf7;
+  border: 1px solid #e5dfc8;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #201c12;
+  position: relative;
+}
+
+.bingo-cell.is-free {
+  background: var(--paper-dim);
+  color: #6b664f;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bingo-cell.is-marked {
+  background: var(--teal);
+  color: #fff;
+  border-color: var(--teal);
+}
+
+.claim-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.claim-btn {
+  padding: 12px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--ink-line);
+  background: var(--ink-soft);
+  color: var(--ink-text);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.claim-btn:hover {
+  border-color: var(--gold);
+}
+
+.claim-btn.is-claimed {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+  cursor: default;
+}
+
+.owner-info {
+  font-size: 0.82rem;
+  color: var(--ink-text-dim);
+  margin-top: 10px;
+}
+
+.finished-banner {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: rgba(225, 91, 77, 0.14);
+  border: 1px solid rgba(225, 91, 77, 0.4);
+  color: var(--coral);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.waiting-banner {
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  background: rgba(231, 178, 76, 0.14);
+  border: 1px solid rgba(231, 178, 76, 0.4);
+  color: var(--gold-strong);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 980px) {
+  .sala-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .bingo-grid-header span {
+    font-size: 1rem;
+  }
+  .bingo-cell {
+    font-size: 0.85rem;
+  }
+  .claim-buttons {
+    grid-template-columns: 1fr;
+  }
+}
